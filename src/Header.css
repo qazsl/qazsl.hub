@@ -1,0 +1,231 @@
+header {
+    padding: 10px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 1;  
+    position: absolute;
+    background-color: #fcfcfc;
+  }
+
+  #logo {
+    width: 71px;
+    height: 40px;
+    font-size: 25px;
+    text-decoration: none;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    bottom: 6px;
+    left: 65px;
+    position: absolute;
+    right: 0;
+    top: 15px;
+    color: #d04653;
+  }
+
+  #logo-images {
+    position: absolute;
+    left: 35px;
+    width: 65px;
+    max-height: 65px;
+    top:  35px;
+    cursor: pointer;
+    border-radius: 0;
+  }
+
+
+.direction a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+.auth {
+    font-size: 18px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding-right: 80px;
+    padding-left: 10px;
+    padding-top: 10px;
+    cursor: pointer;
+}
+
+#sign {
+    border-radius: 8px;
+    padding: 5px;
+    border: #3AC0C0 2px solid;
+    position: relative;
+    top: 10px;
+    padding-top: 3px;
+    transition: 0.2s ease-in-out;
+    text-decoration: none;
+    color: #3AC0C0;
+    
+}
+
+#sign:hover {
+    border-radius: 8px;
+    padding: 5px;
+    padding-bottom: 0px;
+    background-color: #756e6a;
+    position: relative;
+    top: 10px;
+    padding-top: 3px;
+    color: rgb(255, 255, 255);
+    transition: 0.2s ease-in-out;
+    text-decoration: none;
+    
+}
+
+#register {
+    left: 10px;
+    padding: 5px;
+    padding-bottom: 0px;
+    border-radius: 8px;
+    background-color:#3AC0C0;
+    color: white;
+    position: relative;
+    top: 10px;
+    padding-bottom: 6px;
+    transition: 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+#register:hover {
+    left: 10px;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #524d4a;
+    color: white;
+    position: relative;
+    top: 10px;
+    padding-bottom: 0px;
+    transition: 0.2s ease-in-out;
+    text-decoration: none;
+}
+
+.menu {
+    position: absolute;
+    left: 13%;
+    padding: 10px;
+}
+
+.menu a {
+    text-decoration: none;
+    padding: 10px;
+    padding-top: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #756e6a;
+    position: relative;
+}
+
+.menu a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: #756e6a;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.menu a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+#home {
+    text-decoration: none;
+    padding: 10px;
+    padding-top: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #469597;
+}
+
+#home:hover {
+    text-decoration: none;
+    padding: 10px;
+    padding-top: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    color: black;
+    transition: 0.1s ease-in-out;
+}
+
+#words {
+    text-decoration: none;
+    padding: 10px;
+    padding-top: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #469597;
+    transition: 0.2s ease-in-out;
+}
+
+#words:hover {
+    text-decoration: none;
+    padding: 10px;
+    padding-top: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    color: black;
+    transition: 0.1s ease-in-out;
+}
+
+#contact {
+    text-decoration: none;
+    padding: 10px;
+    padding-top: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    color: #469597;
+    transition: 0.1s ease-in-out;
+}
+
+#contact:hover {
+    text-decoration: none;
+    padding: 10px;
+    padding-top: 5px;
+    font-weight: 600;
+    font-size: 18px;
+    color: black;
+    transition: 0.1s ease-in-out;
+}
+
+#video-conf {
+    text-decoration: none;
+    position: relative;
+    right: 10px;
+    text-align: center;
+    top: 11px;
+    font-size: 300;
+    color: white;
+    background-color: #3AC0C0;
+    border-radius: 10px;
+    padding: 5px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    transition: 0.2s ease-in-out;
+}
+
+#video-conf:hover {
+    text-decoration: none;
+    position: relative;
+    right: 10px;
+    text-align: center;
+    top: 11px;
+    font-size: 300;
+    color: white;
+    background-color: #54504d;
+    border-radius: 10px;
+    padding: 5px;
+    padding-top: 6px;
+    padding-bottom: 0px;
+    transition: 0.2s ease-in-out;
+
+}

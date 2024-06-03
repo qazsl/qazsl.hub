@@ -1,0 +1,264 @@
+/* a.css */
+.container-video {
+  position: relative;
+  top: 70px;
+  left: 12%;
+}
+
+.video-title h2{
+  margin-left: 160px;
+  font-weight: bold;
+}
+
+.video-title hr {
+  width: 780px;
+  position: relative;
+  right: 14%;
+  background-color: #b04653;
+}
+
+.video-title h4{
+  margin-left: 150px;
+  font-weight: 500;
+  margin-right: 40%;
+  background-color: rgb(190, 190, 190);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#video-a {
+  width: 800px;
+  border-radius: 10px;
+  cursor: pointer;
+  touch-action: manipulation;
+  direction: ltr;
+  display: block;
+  position: relative;
+  margin-top: 30px;
+  margin-left: 150px;
+}
+
+.play-pause-button {
+  position: absolute;
+  top: 35%;
+  left: 37%;
+  width: 60px;
+  height: 60px;
+  transform: translate(-50%, -50%);
+  background-color: rgbsa(0, 0, 0, 0);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 18px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #22848400;
+}
+
+
+#play-img {
+  width: 60px;
+  height: 60px;
+  background-color: #22848400;
+}
+
+.other-video {
+  background-color: aqua;
+}
+
+#b-video {
+  background-color: rgb(214, 214, 214);
+  border: 1xp rgb(255, 4, 4) solid;
+  position: absolute;
+  width: 500px;
+  left: 65%;
+  top: 25%;
+  border-radius: 10px;
+  display: flex;
+  transition: 0.2s ease-in-out;
+}
+
+#b-video:hover {
+  background-color: rgb(201, 201, 201);
+  border: 1xp rgb(255, 4, 4) solid;
+  position: absolute;
+  width: 500px;
+  left: 65%;
+  top: 25%;
+  border-radius: 10px;
+  display: flex;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.03);
+}
+
+#c {
+  width: 200px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+#b-title {
+  font-weight: 500;
+  font-size: 17px;
+  color: black;
+}
+
+#a1-video {
+  background-color: rgb(214, 214, 214);
+  border: 1xp rgb(255, 4, 4) solid;
+  position: absolute;
+  width: 500px;
+  left: 65%;
+  top: 0%;
+  border-radius: 10px;
+  display: flex;
+  transition: 0.2s ease-in-out;
+}
+
+#a1-video:hover {
+  background-color: rgb(201, 201, 201);
+  border: 1xp rgb(255, 4, 4) solid;
+  position: absolute;
+  width: 500px;
+  left: 65%;
+  top: 0%;
+  border-radius: 10px;
+  display: flex;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.03);
+}
+
+#a1-video-preview {
+  width: 200px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+#b-video-preview {
+  width: 200px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+#v-video {
+  background-color: rgb(214, 214, 214);
+  border: 1xp rgb(255, 4, 4) solid;
+  position: absolute;
+  width: 500px;
+  left: 65%;
+  top: 50%;
+  border-radius: 10px;
+  display: flex;
+  transition: 0.2s ease-in-out;
+}
+
+#v-video:hover {
+  background-color: rgb(201, 201, 201);
+  border: 1xp rgb(255, 4, 4) solid;
+  position: absolute;
+  width: 500px;
+  left: 65%;
+  top: 50%;
+  border-radius: 10px;
+  display: flex;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.03);
+}
+
+#v-video-preview {
+  width: 200px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+#a1-title {
+  font-weight: 500;
+  font-size: 17px;
+  color: black;
+}
+
+#v-title {
+  font-weight: 500;
+  font-size: 17px;
+  color: black;
+}
+
+
+#g1-video {
+  background-color: rgb(214, 214, 214);
+  border: 1xp rgb(255, 4, 4) solid;
+  position: absolute;
+  width: 500px;
+  left: 65%;
+  top: 100%;
+  border-radius: 10px;
+  display: flex;
+  transition: 0.2s ease-in-out;
+}
+
+#g1-video:hover {
+  background-color: rgb(201, 201, 201);
+  border: 1xp rgb(255, 4, 4) solid;
+  position: absolute;
+  width: 500px;
+  left: 65%;
+  top: 100%;
+  border-radius: 10px;
+  display: flex;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.03);
+}
+
+#g1-video-preview {
+  width: 200px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+#g1-title {
+  font-weight: 500;
+  font-size: 17px;
+  color: black;
+}
+
+#g-video {
+  background-color: rgb(214, 214, 214);
+  border: 1xp rgb(255, 4, 4) solid;
+  position: absolute;
+  width: 500px;
+  left: 65%;
+  top: 75%;
+  border-radius: 10px;
+  display: flex;
+  transition: 0.2s ease-in-out;
+}
+
+#g-video:hover {
+  background-color: rgb(201, 201, 201);
+  border: 1xp rgb(255, 4, 4) solid;
+  position: absolute;
+  width: 500px;
+  left: 65%;
+  top: 75%;
+  border-radius: 10px;
+  display: flex;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.03);
+}
+
+#g-video-preview {
+  width: 100px;
+  max-height: 1000px;
+  margin: 10px;
+  border-radius: 5px;
+}
+
+#g-title {
+  font-weight: 500;
+  font-size: 17px;
+  color: black;
+}

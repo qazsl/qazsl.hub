@@ -1,0 +1,15 @@
+input[type='image']{
+    position: absolute;
+    top: 10%;
+    left: 61%;
+    max-width: 1000%;
+    cursor: default;
+  }
+  
+  #wave-new {
+    position: absolute;
+    left: 60%;
+    top: -5%;
+    width: 50%;
+    transform: scale(-1, 1) rotate(155deg);
+  }

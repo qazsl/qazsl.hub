@@ -1,0 +1,46 @@
+.hello-video {
+  margin-top: 50px;
+  width: 75%;
+  margin-right: 0px;
+}
+
+.go button{
+  position: absolute;
+  background-color: #d04653;
+  right: 69%;
+  width: 250px;
+  height: 50px;
+  cursor: pointer;
+  bottom: 240px;
+  border: none;
+  color: white;
+  font-size: 20px;
+  transition: 0.2s ease-in-out;
+  border-radius: 10px;
+}
+
+.go button:hover{
+  position: absolute;
+  background-color: #be1f2f;
+  border: none;
+  color: white;
+  transition: 0.2s ease-in-out;
+  transform: scale(1.10);
+  border-radius: 10px;
+}
+
+.title-h2 {
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 15%;
+  font-size: 20px;
+}
+
+.title-logo-name {
+  position: absolute;
+  top: 30%;
+  left: 15%;
+  color: white;
+  font-size: 80px;
+}

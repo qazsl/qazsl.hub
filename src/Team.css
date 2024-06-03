@@ -1,0 +1,102 @@
+.business-card {
+  font-family: Arial, sans-serif;
+  border: 1px solid #c2c2c2;
+  padding: 20px;
+  width: 600px;
+  margin-left: 50px;
+  margin-top: 100px;
+  position: relative;
+  display: flex;
+  box-shadow: 0px 10px 10px 0px rgba(120, 120, 120, 0.5);
+}
+
+.team-title h1{
+  position: absolute;
+  font-weight: 450;
+  font-size: 40px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.boxes {
+  margin-left: 40px;
+  display: flex;
+  margin-top: 100px;
+  flex-wrap:wrap;
+  justify-content: flex-start; /* Добавлено */
+}
+
+.icon {
+  position: relative;
+  width: 200px; /* Добавлено */
+  height: 200px; /* Добавлено */
+  text-align: center;
+  margin: 0 auto; /* Добавлено */
+}
+
+.icon img {
+  width: 100%; /* Изменено */
+  height: 100%; /* Изменено */
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+.info {
+  margin: 20px;
+}
+
+.info h2 {
+  margin: 0;
+  font-size: 1.2em;
+}
+
+.info .role {
+  color: #007bff;
+  margin: 5px 0;
+}
+
+.info .email,
+.info .phone {
+  margin: 5px 0;
+}
+
+.info .email a {
+  color: #000;
+  text-decoration: none;
+}
+
+.info .email a:hover {
+  text-decoration: underline;
+}
+
+
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-left {
+  animation: slideInFromLeft 0.5s ease-out forwards;
+}
+
+.slide-right {
+  animation: slideInFromRight 0.5s ease-out forwards;
+}

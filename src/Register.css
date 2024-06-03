@@ -1,0 +1,90 @@
+.register-container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 10%;
+    border: 1px solid #ccc;
+    text-align: center;
+    background-color: #9a8570;
+}
+
+.form-group input[type="text"] {
+    background-color: #9a8570;
+    width: 200px; /* Начальная ширина */
+    height: 30px;
+    margin-bottom: 20px;
+    outline: none;
+    border: none;
+    border-bottom: 3px #58493a solid;
+    transition: width 0.3s ease; /* Плавное изменение ширины */
+}
+
+.form-group input[type="text"]:hover {
+    width: 250px; /* Увеличиваем ширину при фокусе */
+    border: none;
+    border-bottom: 2px #58493a solid;
+}
+
+.form-group label {
+    display: block;
+    padding-bottom: 10px;
+    color: white;
+}
+
+.form-group input[type="email"] {
+    background-color: #9a8570;
+    width: 200px;
+    height: 30px;
+    margin-bottom: 20px;
+    outline: none;
+    border-bottom: 3px #58493a solid;
+    transition: width 0.3s ease;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+}
+
+.form-group input[type="email"]:hover {
+    width: 250px;
+    border-bottom: 2px #58493a solid; 
+}
+
+.form-group input[type="password"] {
+    width: 200px;
+    background-color: #9a8570;
+    height: 30px;
+    margin-bottom: 20px;
+    outline: none;
+    border: 1px solid #ccc;
+    border: none;
+    transition: width 0.3s ease;
+    border-bottom: 3px #58493a solid;
+}
+
+.form-group input[type="password"]:hover {
+    width: 250px;
+    border-bottom: 2px #58493a solid;
+}
+
+button#reg-sub {
+    background-color: #58493a;
+    border: none;
+    border: 2px #58493a solid;
+    width: 200px;
+    height: 30px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: white;
+    cursor: pointer;
+}
+
+button#reg-sub:hover {
+    background-color: #3d3227;
+    border: none;
+    border: 2px #58493a solid;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+}
+
+.register-container h2 {
+    color: white;
+}

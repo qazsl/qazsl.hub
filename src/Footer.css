@@ -1,0 +1,65 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    background-color: #000000;
+    color: #565656;
+    padding: 20px;
+    padding-bottom: 10px;
+    height: 100px;
+    margin-top: 10%;
+
+  }
+
+  .footer-container {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999; /* Позволяет футеру оставаться поверх других элементов */
+  }
+  
+  .footer-left {
+    display: flex;
+  }
+  
+  .footer-logo {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .footer-right {
+    
+    display: flex;
+  }
+  
+  .social-links a {
+    color: #fff;
+    margin-right: 10px;
+  }
+  
+  .social-links a:hover {
+    color: #ccc;
+  }
+  
+  .copyright {
+    font-size: 12px;
+    padding-top: 35px;
+  }
+  
+  .logo-copyright {
+    display: block;
+  }
+
+  #instagram {
+    background-image: url(/src/img/instagram-logo.png);
+  }
+
+  #telegram-logo {
+    position: relative; /* Изменено на relative */
+    max-width: 30px;
+    border-radius: 5px;
+    padding: 2px;
+    /* Уберите следующие две строки */
+    /* left: 98%; */
+    /* top: 343%; */
+  }
+  

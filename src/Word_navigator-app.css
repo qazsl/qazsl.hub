@@ -1,0 +1,95 @@
+.direction1 {
+    position: relative;
+    margin-bottom: 20px;
+    width: 90%;
+    text-align: start;
+    left: 5%;
+}
+
+.direction a {
+    text-decoration: none;
+    margin: 10px;
+    color: #af9e8e;
+    font-size: 20px;
+    font-weight: 600;
+    position: relative;
+}
+
+.direction a::after {
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: rgb(85, 26, 139);
+    transition: width 0.2s ease-in-out, left 0.2s ease-in-out;
+}
+
+.direction a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+
+#alphabet {
+    position: relative;
+    text-decoration: none;
+    margin: 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+}
+
+#alphabet:hover {
+    text-decoration: none;
+    margin: 10px;
+    color: #937355;
+    font-size: 20px;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+}
+
+#numbers {
+    text-decoration: none;
+    margin: 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+}
+
+#numbers:hover {
+    text-decoration: none;
+    margin: 10px;
+    color: rgb(84, 25, 139);
+    font-size: 20px;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+}
+
+#topics {
+    text-decoration: none;
+    margin: 10px;
+    color: black;
+    font-size: 20px;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+}
+
+#topics:hover {
+    text-decoration: none;
+    margin: 10px;
+    color:  #2693d6;
+    font-size: 20px;
+    font-weight: 600;
+    transition: 0.2s ease-in-out;
+}
+
+.hr2 {
+    margin-top: 10px;
+    height: 2.5px;
+    background-color: #c96363;
+    border: none;
+    border-radius: 10px;
+}

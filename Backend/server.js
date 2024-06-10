@@ -1,13 +1,7 @@
 const http = require("http");
-const formidable = require("formidable");
-const fs = require("fs");
-const express = require('express'); // Import express module
-
-const app = express(); // Create Express app instance
-
 const sqlite3 = require("sqlite3").verbose();
 
-
+// Cria uma conexão com o banco de dados empresa.db
 const db = new sqlite3.Database("empresa.db", (err) => {
     if (err) {
         console.error(err);
@@ -16,27 +10,25 @@ const db = new sqlite3.Database("empresa.db", (err) => {
     }
 });
 
+// Cria uma tabela se ela não existir no banco de dados empresa.db.
 db.run(
-    `CREATE TABLE IF NOT EXISTS Produtos(
-        ProductID INTEGER PRIMARY KEY AUTOINCREMENT,
-        ProductName TEXT,
-        SupplierID INTEGER,
-        CategoryID INTEGER,
-        Unit TEXT,
-        Price FLOAT,
-        ImageData BLOB
+    `CREATE TABLE IF NOT EXISTS Images_jest (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        img_name TEXT,
+        img BLOB
     )`,
     (err) => {
         if (err) {
             console.error(err);
         } else {
-            console.log("Таблица обновлена успешно.");
+            console.log("Tabela criada com sucesso.");
         }
     }
 );
 
-const search = (callback) => {
-    db.all("SELECT * FROM Produtos", (err, rows) => {
+// Realiza uma consulta de todas as informações da tabela Images_jest.
+const searchAll = (callback) => {
+    db.all("SELECT * FROM Images_jest", (err, rows) => {
         if (err) {
             console.error(err);
         } else {
@@ -45,20 +37,33 @@ const search = (callback) => {
     });
 };
 
+// Realiza uma consulta de informações da tabela Images_jest por ID.
+const searchById = (id, callback) => {
+    db.get("SELECT * FROM Images_jest WHERE id = ?", [id], (err, row) => {
+        if (err) {
+            console.error(err);
+        } else {
+            callback(row);
+        }
+    });
+};
+
+// Prepara uma consulta para adicionar dados ao nosso bd.
 const insertData = db.prepare(
-    `INSERT INTO Produtos (ProductName, SupplierID, CategoryID, Unit, Price, ImageData)
-    VALUES (?, ?, ?, ?, ?, ?)`,
+    `INSERT INTO Images_jest (img_name, img)
+    VALUES (?, ?)`,
     (err) => {
         if (err) {
             console.error(err);
         } else {
-            console.log("Данные вставлены успешно.");
+            console.log("Dados inseridos com sucesso.");
         }
     }
 );
 
+// Prepara uma consulta para excluir dados do bd.
 const deleteData = db.prepare(
-    `DELETE FROM Produtos WHERE ProductID == ?`,
+    `DELETE FROM Images_jest WHERE id = ?`,
     (err) => {
         if (err) {
             console.error(err);
@@ -68,14 +73,12 @@ const deleteData = db.prepare(
     }
 );
 
+// Prepara uma consulta para modificar os dados do bd.
 const modifyData = db.prepare(
-    `UPDATE Produtos
-      SET ProductName = ?,
-          SupplierID = ?,
-          CategoryID = ?,
-          Unit = ?,
-          Price = ?
-     WHERE ProductID = ?`,
+    `UPDATE Images_jest
+      SET img_name = ?,
+          img = ?
+      WHERE id = ?`,
     (err) => {
         if (err) {
             console.error(err);
@@ -85,55 +88,62 @@ const modifyData = db.prepare(
     }
 );
 
+// Agora vamos criar o servidor e trazer as informações do bd para o servidor.
 const server = http.createServer((req, res) => {
+    // Para permitir os CORS e que não tenha problema neste exemplo.
     res.setHeader("Access-Control-Allow-Origin", "*");
     res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
     res.setHeader("Access-Control-Allow-Headers", "Content-Type");
 
-    console.log(`Received request: ${req.method} ${req.url}`);
+    const url = new URL(req.url, `http://${req.headers.host}`);
+    const id = url.searchParams.get("id");
 
     if (req.method === "GET") {
-        search((result) => {
-            console.log('Sending data:', result);
-            res.write(JSON.stringify(result));
-            res.end();
-        });
-    } else if (req.method === "POST") {
-        app.post('/upload', (req, res) => {
-            const form = new formidable.IncomingForm();
-        
-            form.parse(req, async (err, fields, files) => {
-                if (err) {
-                    console.error('Error uploading image:', err);
-                    res.status(500).json({ error: 'Error uploading image' });
-                    return;
+        if (id) {
+            // Retorna a informação específica para o servidor.
+            searchById(id, (result) => {
+                if (result) {
+                    result.img = result.img ? `data:image/jpeg;base64,${result.img.toString('base64')}` : null;
+                    res.write(JSON.stringify(result));
+                } else {
+                    res.write(JSON.stringify({ error: "No data found" }));
                 }
-        
-                const { ProductName, SupplierID, CategoryID, Unit, Price } = fields;
-        
-                const oldPath = files.image.path;
-                const newPath = './images/' + files.image.name;
-        
-                try {
-                    fs.renameSync(oldPath, newPath);
-        
-                    // Save file path to database
-                    insertData.run(
-                        ProductName,
-                        SupplierID,
-                        CategoryID,
-                        Unit,
-                        Price,
-                        newPath
-                    );
-        
-                    console.log("Data inserted successfully.");
-                    res.json({ message: 'Image uploaded successfully' });
-                } catch (error) {
-                    console.error('Error moving file:', error);
-                    res.status(500).json({ error: 'Error moving file' });
-                }
+                res.end();
             });
+        } else {
+            // Retorna todas as informações para o servidor.
+            searchAll((results) => {
+                const modifiedResults = results.map(row => ({
+                    ...row,
+                    img: row.img ? `data:image/jpeg;base64,${row.img.toString('base64')}` : null
+                }));
+                res.write(JSON.stringify(modifiedResults));
+                res.end();
+            });
+        }
+    } else if (req.method === "POST") {
+        let body = "";
+        // Recebe as informações enviadas para o servidor.
+        req.on("data", (chunk) => {
+            body += chunk;
+        });
+        req.on("end", () => {
+            // Deserializa as informações.
+            const parsedBody = JSON.parse(body);
+            console.log(parsedBody);
+            // Usa a consulta preparada para inserir os dados recebidos do Frontend.
+            insertData.run(
+                parsedBody.img_name,
+                Buffer.from(parsedBody.img, 'base64'),
+                (err) => {
+                    if (err) {
+                        console.error(err);
+                    } else {
+                        console.log("Dados criados com sucesso.");
+                        res.end("Dados criados com sucesso.");
+                    }
+                }
+            );
         });
     } else if (req.method === "DELETE") {
         let body = "";
@@ -143,8 +153,15 @@ const server = http.createServer((req, res) => {
         req.on("end", () => {
             const parsedBody = JSON.parse(body);
             console.log(parsedBody);
-            deleteData.run(parsedBody.ProductID);
-            console.log("Dados excluídos com sucesso.");
+            // Usamos a consulta preparada para excluir os dados que o Frontend indicar.
+            deleteData.run(parsedBody.id, (err) => {
+                if (err) {
+                    console.error(err);
+                } else {
+                    console.log("Dados excluídos com sucesso.");
+                    res.end("Dados excluídos com sucesso.");
+                }
+            });
         });
     } else if (req.method === "PUT") {
         let body = "";
@@ -154,20 +171,24 @@ const server = http.createServer((req, res) => {
         req.on("end", () => {
             const parsedBody = JSON.parse(body);
             console.log(parsedBody);
+            // Usamos a consulta preparada para modificar os dados recebidos do Frontend.
             modifyData.run(
-                parsedBody.ProductName,
-                parsedBody.SupplierID,
-                parsedBody.CategoryID,
-                parsedBody.Unit,
-                parsedBody.Price,
-                parsedBody.ProductID
+                parsedBody.img_name,
+                Buffer.from(parsedBody.img, 'base64'),
+                parsedBody.id,
+                (err) => {
+                    if (err) {
+                        console.error(err);
+                    } else {
+                        console.log("Dados modificados com sucesso.");
+                        res.end("Dados modificados com sucesso.");
+                    }
+                }
             );
-            console.log("Dados modificados сom sucesso.");
         });
     }
 });
 
-const port = 3001;
-app.listen(port, () => {
-    console.log(`Server listening on port ${port}`);
-});
+const port = 3000;
+server.listen(port);
+console.log(`Servidor escutando no porto ${port}`);

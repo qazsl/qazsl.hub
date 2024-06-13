@@ -21,7 +21,7 @@ function Header() {
                 <Link to='/number_realtime' style={{ textDecoration: 'none' }}>
                     <a id='register'>Real Time Hand</a>
                 </Link>
-                <Link style={{ textDecoration: 'none' }}>
+                <Link to='/' style={{ textDecoration: 'none' }}>
                     <a id='sign'>Басты бет</a>
                 </Link>
                 <Link style={{ textDecoration: 'none' }}>

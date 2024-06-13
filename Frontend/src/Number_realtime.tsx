@@ -4,10 +4,26 @@ import { Camera } from '@mediapipe/camera_utils';
 import { HAND_CONNECTIONS, Holistic, Results, LandmarkList } from '@mediapipe/holistic';
 import { drawConnectors, drawLandmarks } from '@mediapipe/drawing_utils';
 import './Number_realtime.css';
-import { relative } from 'path';
+
+
 import { Link } from 'react-router-dom';
 
+const holistic = new Holistic({
+  locateFile: (file) => `https://cdn.jsdelivr.net/npm/@mediapipe/holistic/${file}`,
+});
+
+holistic.setOptions({
+  modelComplexity: 1,
+  smoothLandmarks: true,
+  enableSegmentation: true,
+  smoothSegmentation: true,
+  refineFaceLandmarks: true,
+  minDetectionConfidence: 0.5,
+  minTrackingConfidence: 0.5,
+});
+
 type HandLandmarks = LandmarkList | undefined;
+
 
 const recognizeGesture = (handLandmarks: HandLandmarks): number | null => {
   if (!handLandmarks) return null;

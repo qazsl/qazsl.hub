@@ -1,38 +1,65 @@
-import React, { useEffect, useState } from "react";
-import './1.css';
+// a.js
+import './a.css';
+import React, { useRef, useState, useEffect } from 'react';
+import videoFile from './videos/1.mp4';
+import playIcon from './img/play.png'; // Путь к изображению кнопки воспроизведения
+import { Link } from 'react-router-dom';
 
 function Bir_jest() {
-    const [product, setProduct] = useState(null);
+  const videoRef = useRef(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const [progress, setProgress] = useState(0);
 
-    useEffect(() => {
-        console.log('Fetching data from server...');
-        fetch("http://localhost:3000?id=2")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Data fetched:', data);
-                setProduct(data);
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    }, []);
+  const handleTimeUpdate = () => {
+    const video = videoRef.current;
+    setProgress((video.currentTime / video.duration) * 100);
+  };
 
-    return (
-        <div className="App">
-            <h1>Product Details</h1>
-            {product ? (
-                <div>
-                    <strong>{product.img_name}</strong><br />
-                    {product.img && <img src={product.img} alt={product.img_name} style={{ width: "100px", height: "100px" }} />}
-                </div>
-            ) : (
-                <p>Loading...</p>
-            )}
-        </div>
-    );
+  const handleSliderChange = (e) => {
+    const video = videoRef.current;
+    const value = e.target.value;
+    video.currentTime = (value / 100) * video.duration;
+    setProgress(value);
+  };
+
+  const handleVideoClick = () => {
+    const video = videoRef.current;
+    if (isPlaying) {
+      video.pause();
+    } else {
+      video.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.loop = true;
+      video.play();
+      setIsPlaying(true);
+    }
+    video.addEventListener('timeupdate', handleTimeUpdate);
+    return () => {
+      video.removeEventListener('timeupdate', handleTimeUpdate);
+    };
+  }, []);
+
+  return (
+    <div className='container-video'>
+      <div className='video-title'>
+        <video ref={videoRef} src={videoFile} id='video-a' onClick={handleVideoClick}></video>
+        {!isPlaying && (
+          <button className='play-pause-button' onClick={handleVideoClick}>
+            <img src={playIcon} id='play-img' alt='Play' />
+          </button>
+        )}
+        <h2>1 Дактилі | QazSL</h2>
+        <hr></hr>
+        <h4>Біз барлық 4 саусақты жарты жүрек түрінде біріктіреміз, содан кейін бас бармақты ішке қарай бүгеміз. Сондай-ақ адамдар сіздің қимылыңызды көруі үшін қолыңызды аузыңызға жақын ұстауыңыз керек.</h4>
+      </div>
+    </div>
+  );
 }
 
 export default Bir_jest;

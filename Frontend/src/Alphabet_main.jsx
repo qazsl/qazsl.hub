@@ -37,17 +37,19 @@ function Alphabet_main() {
 function getImageSrc(index) {
     switch(index) {
         case 0:
-            return "https://avatars.dzeninfra.ru/get-zen_doc/1885679/pub_64ec794f39814150a4a8a48d_64ec7a4dbc3bf63c2e215bbd/scale_1200";
+            return "https://github.com/Userq-ops/img-qazsl/blob/main/img/%D0%90.jpg?raw=true";
         case 1:
-            return "https://avatars.dzeninfra.ru/get-zen_doc/1209363/pub_64ec794f39814150a4a8a48d_64ec7b5040c6e93d68fa7efa/scale_2400";
+            return "https://github.com/Userq-ops/img-qazsl/blob/main/img/%D3%98.png?raw=true";
         case 2:
-            return "https://avatars.dzeninfra.ru/get-zen_doc/1245815/pub_64ec794f39814150a4a8a48d_64ec7a56a530e566825a6541/scale_2400";
+            return "https://github.com/Userq-ops/img-qazsl/blob/main/img/%D0%91.png?raw=true";
         case 3:
-            return "https://avatars.dzeninfra.ru/get-zen_doc/936895/pub_64ec794f39814150a4a8a48d_64ec7a68139b66559720fe37/scale_1200";
+            return "https://github.com/Userq-ops/img-qazsl/blob/main/img/%D0%92.png?raw=true";
         case 4:
-            return "https://avatars.dzeninfra.ru/get-zen_doc/1885679/pub_64ec794f39814150a4a8a48d_64ec7a4dbc3bf63c2e215bbd/scale_1200";
+            return "https://github.com/Userq-ops/img-qazsl/blob/main/img/%D0%93.png?raw=true";
         case 5:
-            return "https://github.com/Userq-ops/img-qazsl/blob/main/img/dot-dot-dot.png?raw=true";
+            return "https://github.com/Userq-ops/img-qazsl/blob/main/img/%D2%92.jpg?raw=true";
+        case 6:
+            return "https://github.com/Userq-ops/img-qazsl/blob/main/img/%D0%93.png?raw=true";
         default:
             return "";
     }
@@ -66,7 +68,9 @@ function getLetter(index) {
         case 4:
             return "Г";
         case 5:
-            return "...";
+            return "Ғ";
+        case 6:
+            return "";
         default:
             return "";
     }

@@ -20,7 +20,7 @@ import Video_conf_chat from './video-conf-chat';
 import A_alphabet from './a';
 import LetterPage from './LetterPage';
 import SearchResultsPage from './SearchResultsPage';
-
+import NumberRealTime from './Number_realtime';
 
 
 import A1_alphabet from './ә';
@@ -67,13 +67,34 @@ import Video_hello from './VideoHello'
 import Numbers_main from './Numbers_main';
 import Team from './Team';
 import Bir_jest from './1';
+import Eki_jest from './2';
+import Ush_jest from './3';
+import Tort_jest from './4';
+import Bes_jest from './5';
+import Alty_jest from './6';
+import Zheti_jest from './7';
+import Segiz_jest from './8';
+import Togyz_jest from './9';
+import On_jest from './10';
+import Onbir_jest from './11';
+import Oneki_jest from './12';
+import Onush_jest from './13';
+import Ontort_jest from './14';
+import Onbes_jest from './15';
+import Onalty_jest from './16';
+import Onzheti_jest from './17';
+import Onsegiz_jest from './18';
+import Ontogyz_jest from './19';
+import Zhiyrma_jest from './20';
 
+import HandNumber from './Number_realtime';
+import Text from './text';
 
 
 function HomePage() {
-
   return (
     <div>
+      <Text />
       <Video_hello />
       <Alphabet_main />
       <Numbers_main />
@@ -85,7 +106,6 @@ function HomePage() {
 }
 
 function App() {
-
 
   const [showFooter, setShowFooter] = useState(true);
   const [showFooterLogin, setShowFooterLogin] = useState(true);
@@ -136,6 +156,28 @@ function App() {
           <Route path="/э" element={<EA_alphabet />} />
           <Route path="/ю" element={<YU_alphabet />} />
           <Route path="/я" element={<YA_alphabet />} />
+
+
+          <Route path="/1" element={<Bir_jest />} />
+          <Route path="/2" element={<Eki_jest />} />
+          <Route path="/3" element={<Ush_jest />} />
+          <Route path="/4" element={<Tort_jest />} />
+          <Route path="/5" element={<Bes_jest />} />
+          <Route path="/6" element={<Alty_jest />} />
+          <Route path="/7" element={<Zheti_jest />} />
+          <Route path="/8" element={<Segiz_jest />} />
+          <Route path="/9" element={<Togyz_jest />} />
+          <Route path="/10" element={<On_jest />} />
+          <Route path="/11" element={<Onbir_jest />} />
+          <Route path="/12" element={<Oneki_jest />} />
+          <Route path="/13" element={<Onush_jest />} />
+          <Route path="/14" element={<Ontort_jest />} />
+          <Route path="/15" element={<Onbes_jest />} />
+          <Route path="/16" element={<Onalty_jest />} />
+          <Route path="/17" element={<Onzheti_jest />} />
+          <Route path="/18" element={<Onsegiz_jest />} />
+          <Route path="/19" element={<Ontogyz_jest />} />
+          <Route path="/20" element={<Zhiyrma_jest />} />
           
           <Route path='/video-conf-chat' element={<Video_conf_chat />} />
           <Route path='/video-conf' element={<Video_conf />} />
@@ -148,6 +190,7 @@ function App() {
           <Route path='/topics' element={<Topics />} />
           <Route path="/search" element={<SearchResultsPage />} />
           <Route path="/1" element={<Bir_jest />} />
+          <Route path="/number_realtime" element={<HandNumber />} />
         </Routes>
         {showFooter && <Footer />}
       </div>

@@ -1,0 +1,26 @@
+.texts {
+  font-weight: 400;
+  text-align: center;
+  position: relative;
+}
+
+.text-div {
+  margin-top: 80px;
+  text-align: center;
+  background-color: white;
+  width: 80%;
+  left: 10%;
+  position: relative;
+  border-radius: 0 0 30px 30px;
+  top: -10px;
+  height: 840px;
+  border: 2px rgb(225, 225, 225) solid;
+  border-top: none;
+}
+
+.textstop {
+  font-weight: 400;
+  text-align: center;
+  position: relative;
+  padding-top: 20px;
+}

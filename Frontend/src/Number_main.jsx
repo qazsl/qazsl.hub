@@ -87,7 +87,7 @@ function getLetter(index) {
         case 4:
             return "5";
         case 5:
-            return "...";
+            return "6";
         case 6:
             return "7";
         case 7:
